@@ -34,12 +34,12 @@ def predict():
         return render_template('index.html',
                                prediction_text='{}% chances of repayment default: The client is likely to repay the '
                                                'Credit'.format(
-                                   output))
+                                   output, id_client))
     else:
         return render_template('index.html',
                                prediction_text='{}% chances of repayment default: The client is NOT likely to repay '
                                                'the Credit'.format(
-                                   output))
+                                   output, id_client))
 
 
 @app.route('/predict_api')
