@@ -29,6 +29,7 @@ data_final['NAME_HOUSING_TYPE'] = readable_data_preprocessed['NAME_HOUSING_TYPE'
 data_final['FLAG_OWN_CAR'] = readable_data_preprocessed['FLAG_OWN_CAR']
 
 
+
 @st.cache
 def load_pickles(path):
     obj = pickle.load(open(path, 'rb'))
@@ -106,6 +107,12 @@ with col2:
     st.write('Car:', df_mask['FLAG_OWN_CAR'].values[0])
 
 data_final.drop(added_columns, axis=1, inplace=True)
+
+# Imputer
+data_final.replace([np.inf, -np.inf], np.nan, inplace=True)
+from sklearn.impute import SimpleImputer
+imp = SimpleImputer(missing_values=np.nan, strategy='median')
+data_final = pd.DataFrame(imp.fit_transform(data_final), columns=data_final.columns)
 
 st.write('________________________________________________')
 st.subheader('Client Raw Data')
