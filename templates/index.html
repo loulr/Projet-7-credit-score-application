@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+    <title>Credit Score Default Prediction</title>
+  </head>
+
+  <body>
+
+<div class="container main">
+  <div class="jumbotron" id="holder">
+     <br>
+       <center><b><h2 style="color:#FF0000";>{{ prediction_text}}</h2></b></center>
+     <br>
+     <br>
+    <center><h1 class='main_heading'>Credit Score Default Prediction</h1></center>
+    <p>This Web Based Application is based on a Machine Learning Algorithm that predicts a client's chance of repaying a Credit or not. [Note that this model is 75% accurate]</p>
+    <br>
+    <div class="instructions">
+      <h2>Instructions: </h2>
+      <p>1. Please Enter Client ID</p>
+      <p>2. Click Predict </p>
+    </div>
+
+    <form class="form-horizontal" action="{{ url_for('predict')}}"method="post">
+
+      <div class="form-group">
+        <div class="col-sm-10">
+          <input  class="form-control" type= "text" name="id_client" placeholder="Client ID" required="required" />
+
+        </div>
+      </div>
+
+
+
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+         <center><button type="submit" class="button btn btn-default">Predict</button></center>
+        </div>
+      </div>
+    </form>
+
+
+
+    <h2 class="result"></h2>
+  </div>
+  </div>
+
+  </body>
+</html>

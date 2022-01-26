@@ -44,7 +44,7 @@ def local_css(file_name):
         st.markdown('<style>{}</style>'.format(f.read()), unsafe_allow_html=True)
 
 
-local_css("API/style.css")
+local_css("style.css")
 
 ### SIDEBAR
 st.sidebar.header('Client Selection')
